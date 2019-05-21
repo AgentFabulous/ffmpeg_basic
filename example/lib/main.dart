@@ -74,6 +74,10 @@ class _MyAppState extends State<MyApp> {
                     ),
                     FlatButton(
                       onPressed: () async {
+                        StreamSubscription streamSubscription;
+                        FfmpegBasic.registerStreamListener(
+                            subscription: streamSubscription,
+                            fn: (rc) => print(rc));
                         if (testAssetsPath.length != 3) return;
                         String target = await getOutputFile();
                         List<String> cmd = new List();
@@ -88,8 +92,9 @@ class _MyAppState extends State<MyApp> {
                         cmd.add(
                             "[2:v]scale=iw/2.5:ih/2.5[logo],[1:v]scale=iw/4:ih/4[ovrl],[0:v]pad=ceil(iw/2)*2:ceil(ih/2)*2[bg],[bg][ovrl]overlay=W-w-W/65:H-h-H/65[f1],[f1][logo]overlay=W/50:H-h-H/50");
                         cmd.add(target);
-                        rc = await FfmpegBasic.execList(cmd);
+                        await FfmpegBasic.execList(cmd);
                         print(target);
+                        print("Returned: " + rc.toString());
                       },
                       child: Text("Test encode"),
                     )
