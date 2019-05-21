@@ -1,0 +1,21 @@
+name: ffmpeg_basic
+description: A Flutter plugin to portably use ffmpeg.
+version: 1.0.1
+author: Kshitij Gupta <kshitijgm@gmail.com>
+homepage:
+
+environment:
+  sdk: ">=2.1.0 <3.0.0"
+
+dependencies:
+  flutter:
+    sdk: flutter
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+
+flutter:
+  plugin:
+    androidPackage: co.potatoproject.ffmpeg_basic
+    pluginClass: FfmpegBasicPlugin
