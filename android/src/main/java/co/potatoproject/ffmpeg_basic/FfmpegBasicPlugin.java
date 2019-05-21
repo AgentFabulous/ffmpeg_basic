@@ -58,13 +58,21 @@ public class FfmpegBasicPlugin implements MethodCallHandler {
         }
     }
 
-    private int ffmpegExec(String command) {
-        FFmpeg.execute(command);
+    private int ffmpegExec(final String command) {
+        new Thread(new Runnable() {
+            public void run() {
+                FFmpeg.execute(command);
+            }
+        }).start();
         return getRetCode();
     }
 
-    private int ffmpegExecArr(List<String> command) {
-        FFmpeg.execute(command.toArray(new String[0]));
+    private int ffmpegExecArr(final List<String> command) {
+        new Thread(new Runnable() {
+            public void run() {
+                FFmpeg.execute(command.toArray(new String[0]));
+            }
+        }).start();
         return getRetCode();
     }
 
