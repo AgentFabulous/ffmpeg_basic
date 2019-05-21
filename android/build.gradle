@@ -25,13 +25,13 @@ android {
     compileSdkVersion 28
 
     defaultConfig {
-        minSdkVersion 24
+        minSdkVersion 21
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
     }
     lintOptions {
         disable 'InvalidPackage'
     }
     dependencies {
-        implementation 'com.arthenica:mobile-ffmpeg-full:4.2.1'
+        implementation 'com.arthenica:mobile-ffmpeg-full:4.2.LTS'
     }
 }
