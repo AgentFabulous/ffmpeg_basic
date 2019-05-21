@@ -2,6 +2,8 @@
 
 A plugin to do some basic ffmpeg tasks.
 
+iOS support is not present at the moment, but will be added up soon :)
+
 ## Getting Started
 
 This project is a starting point for a Flutter
